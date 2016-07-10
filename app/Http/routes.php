@@ -20,3 +20,7 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/registrar-empresa', 'RegistrarController@index');
+
+Route::get('/quienesSomos', function () {
+    return view('quienesSomos');
+});
