@@ -14,15 +14,24 @@
                 </div>
                 <table class="table">
                     <thead>
+                    @if(Auth::user()->userable_type == App\Models\Cliente::class)
                         <tr>
                             <th>Empresa</th>
                             <th>Empleado</th>
                             <th>Servicio</th>
                             <th>Estado</th>
                         </tr>
+                    @else
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Servicio</th>
+                            <th>Estado</th>
+                        </tr>
+                    @endif
                     </thead>
                     <tbody>
-                    @foreach($servicios as $servicio)
+                    @if(Auth::user()->userable_type == App\Models\Cliente::class)
+                        @foreach($servicios as $servicio)
                         <tr>
                             <td>{{ $servicio->empleado->empresa->nombre }}</td>
                             <td>{{ $servicio->empleado->user->name }}</td>
@@ -30,7 +39,17 @@
                             <td><span class="label {{ $serviciosLabels[$servicio->estado->codigo] }}">{{ $servicio->estado->nombre }}</span></td>
                             <td><a href="{{ URL::route('servicios.ver', ['id'=>$servicio->id]) }}">Ver &raquo;</a></td>
                         </tr>
-                    @endforeach
+                        @endforeach
+                    @else
+                        @foreach($servicios as $servicio)
+                        <tr>
+                            <td>{{ $servicio->cliente->user->name }}</td>
+                            <td>{{ $servicio->nombre }}</td>
+                            <td><span class="label {{ $serviciosLabels[$servicio->estado->codigo] }}">{{ $servicio->estado->nombre }}</span></td>
+                            <td><a href="{{ URL::route('servicios.ver', ['id'=>$servicio->id]) }}">Ver &raquo;</a></td>
+                        </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>

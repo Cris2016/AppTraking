@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Models\Cliente;
+use App\Models\Empresa;
+use App\Models\Empleado;
 
 class AuthController extends Controller
 {
@@ -70,11 +72,25 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        $cliente = new Cliente;
-        $cliente->telefono = "";
-        $cliente->direccion = "";
-        $cliente->save();
-        $cliente->user()->save($user);
+        if(!empty($data['empresa'])){
+            $empresa = new Empresa;
+            $empresa->rtn = $data["rtn"];
+            $empresa->nombre = $data["empresa-nombre"];
+            $empresa->rubro_id = $data["rubro"];
+            $empresa->direccion = $data["direccion"];
+            $empresa->save();
+
+            $empleado = new Empleado;
+            $empleado->telefono = "";
+            $empresa->empleados()->save($empleado);
+            $empleado->user()->save($user);
+        }else{
+            $cliente = new Cliente;
+            $cliente->telefono = "";
+            $cliente->direccion = "";
+            $cliente->save();
+            $cliente->user()->save($user);
+        }
 
         return $user;
     }

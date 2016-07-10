@@ -15,4 +15,9 @@ class Empleado extends Model
     {
         return $this->belongsTo('App\Models\Empresa');
     }
+
+    public function servicios()
+    {
+        return $this->hasMany('App\Models\Servicio');
+    }
 }

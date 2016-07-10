@@ -22,6 +22,11 @@ class Servicio extends Model
         return $this->belongsTo('App\Models\Empleado');
     }
 
+    public function cliente()
+    {
+        return $this->belongsTo('App\Models\Cliente');
+    }
+
     public function eventos()
     {
         return $this->hasMany('App\Models\Evento');

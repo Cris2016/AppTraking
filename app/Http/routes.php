@@ -26,8 +26,9 @@ Route::get('/home', 'HomeController@index');
 Route::get('/registrar-empresa', 'RegistrarController@index');
 
 Route::group(['middleware' => 'auth'], function(){
+    Route::get('/servicios/{id}', ['as'=>'servicios.ver', 'uses'=>'ClienteController@verServicio']);
     Route::group(['middleware' => 'cliente'], function(){
-        Route::get('/servicios/{id}', ['as'=>'servicios.ver', 'uses'=>'ClienteController@verServicio']);
+        //
     });
     Route::group(['middleware' => 'empleado', 'prefix' => 'empresa'], function(){
         //

@@ -30,7 +30,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
 
-        <li class="active"><a href="">Empresas <span class="sr-only">(current)</span></a></li>
+        <li><a href="{{url('/empresas')}}">Empresas <span class="sr-only">(current)</span></a></li>
 
         <ul class="nav navbar-nav navbar-right">
             <!-- Authentication Links -->
@@ -65,6 +65,25 @@
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+    <script>
+
+        $(function () {
+            setNavigation();
+        });
+
+    function setNavigation() {
+        var path = window.location.pathname;
+        path = path.replace(/\/$/, "");
+        path = decodeURIComponent(path);
+
+        $(".navbar a").each(function () {
+            var href = this.pathname;
+            if (path.substring(0, href.length) === href) {
+                $(this).closest('li').addClass('active');
+            }
+        });
+    }
+    </script>
 </body>
 </html>
