@@ -3,7 +3,7 @@
 @section('content')
 
 <br>
-<h1 align = "center">Tracking Center</h1>
+<h1 class="text-center">Registro de Empleados</h1>
 <br>
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">

@@ -100,8 +100,8 @@
       <div class="col-md-4 col-md-offset-4">
           <button type="submit" class="btn btn-primary">
               <i class="fa fa-btn fa-user"></i> Registrarse
-          </button>
-          <a class="btn btn-default" href="{{ url('registrar-empresa') }}">Registrar Empresa</a>
+          </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="btn btn-default" href="{{ url('register') }}">Registrarse como Cliente</a>
       </div>
   </div>
 </form>
