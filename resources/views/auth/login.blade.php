@@ -5,8 +5,8 @@
 
       <div class="jumbotron">
         <center><img src="{{asset('img/logo.png')}}" alt="" width="500px" /></center>
-        <p>This is a simple hero unit, a simple
-          jumbotron-style component for calling extra attention to featured content or information.</p>
+        <br>
+        <p align = "center">Esta herramienta te permite llevar un mejor seguimiento y control de los servicios que adquieres.</p>
       </div>
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">

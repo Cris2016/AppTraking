@@ -30,13 +30,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
 
-        <li class="active"><a href="">Empresas <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="{{ url('/empresas') }}"> Empresas <span class="sr-only">(current)</span></a></li>
 
         <ul class="nav navbar-nav navbar-right">
             <!-- Authentication Links -->
             @if (Auth::guest())
-                <li><a href="{{ url('/quienesSomos') }}">¿Quiénes Somos? <span class="sr-only">(current)</span></a></li>
-                <li><a href="{{ url('/login') }}">Inicio de Sesión</a></li>
+                <li><a href="{{ url('/quienesSomos') }}">¿Quiénes somos? <span class="sr-only">(current)</span></a></li>
+                <li><a href="{{ url('/login') }}">Inicio de sesión</a></li>
                 <li><a href="{{ url('/register') }}">Registrarse</a></li>
             @else
 
