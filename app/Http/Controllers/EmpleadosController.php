@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Servicio;
 use App\Models\Evento;
+use App\Models\Estado;
 
 class EmpleadosController extends Controller
 {
@@ -25,5 +26,24 @@ class EmpleadosController extends Controller
         $servicio->eventos()->save($evento);
 
         return redirect()->route('servicios.ver', ['id'=>$id]);
+    }
+
+    public function crearServicio()
+    {
+        return view('servicios.crear');
+    }
+
+    public function guardarServicio(Request $request)
+    {
+        $servicio = new Servicio;
+        $servicio->cliente_id = $request->input('cliente');
+        $servicio->nombre = $request->input('nombre');
+        $servicio->descripcion = $request->input('descripcion');
+        $servicio->empleado_id = \Auth::user()->userable_id;
+        $servicio->estado_id = Estado::where('codigo', 'pendiente')->first()->id;
+
+        $servicio->save();
+
+        return redirect('/home');
     }
 }

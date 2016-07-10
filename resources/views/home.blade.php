@@ -10,7 +10,11 @@
                 <div class="panel-heading">Panel</div>
 
                 <div class="panel-body">
-                    <p>Mis servicios en este momento:</p>
+                    <p>Mis servicios en este momento:
+                    @if(Auth::user()->esEmpleado())
+                    <a class="btn btn-sm btn-success pull-right" href="{{URL::route('servicios.agregar')}}">Agregar trabajo</a>
+                    @endif
+                    </p>
                 </div>
                 <table class="table">
                     <thead>
