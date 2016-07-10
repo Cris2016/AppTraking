@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::post('/servicios/{id}/eventos', ['as'=>'servicios.eventos.guardar', 'uses'=>'EmpleadosController@guardarEvento']);
         Route::get('/servicios/crear', ['as'=>'servicios.agregar', 'uses'=>'EmpleadosController@crearServicio']);
         Route::post('/servicios/guardar', ['as'=>'servicios.guardar', 'uses'=>'EmpleadosController@guardarServicio']);
+        Route::get('/servicios/{id}/cambiar-estado/{estado}', ['as'=>'servicios.cambiar-estado', 'uses'=>'EmpleadosController@cambiarEstado']);
     });
 });
 

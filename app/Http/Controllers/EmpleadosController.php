@@ -46,4 +46,26 @@ class EmpleadosController extends Controller
 
         return redirect('/home');
     }
+
+    public function cambiarEstado($id, $estado)
+    {
+        $servicio = Servicio::find($id);
+
+        $servicio->estado_id = $estado;
+        $servicio->save();
+
+        $e = Estado::find($estado);
+        $evento = new Evento;
+        if($e->codigo == 'en_proceso')
+        {
+            $evento->descripcion = 'Inicio del proceso.';
+        }
+        elseif($e->codigo == 'completado')
+        {
+            $evento->descripcion = 'Fin del proceso.';
+        }
+        $servicio->eventos()->save($evento);
+
+        return redirect()->route('servicios.ver', ['id'=>$id]);
+    }
 }

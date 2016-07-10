@@ -4,7 +4,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>{{ $servicio->nombre }} <br>
+            <?php
+            $estados = App\Models\Estado::lists('id', 'codigo')->toArray();
+            ?>
+            <h1>{{ $servicio->nombre }}<br>
+            @if($servicio->estado->codigo == "pendiente")
+                <a class="btn btn-info pull-right" href="{{URL::route('servicios.cambiar-estado', ['id'=>$servicio->id, 'estado'=>$estados['en_proceso']])}}">Iniciar proceso</a>
+            @elseif($servicio->estado->codigo == "en_proceso")
+                <a class="btn btn-success pull-right" href="{{URL::route('servicios.cambiar-estado', ['id'=>$servicio->id, 'estado'=>$estados['completado']])}}">Completar</a>
+            @endif
             <small><span class="label {{$labels[$servicio->estado->codigo]}}">{{ $servicio->estado->nombre }}</span></small></h1>
             <p>{{ $servicio->descripcion }}</p>
             <hr>
