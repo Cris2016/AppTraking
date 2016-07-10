@@ -20,3 +20,12 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/registrar-empresa', 'RegistrarController@index');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::group(['middleware' => 'cliente'], function(){
+        //
+    });
+    Route::group(['middleware' => 'empleado', 'prefix' => 'empresa'], function(){
+        //
+    });
+});
