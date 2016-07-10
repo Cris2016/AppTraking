@@ -10,4 +10,9 @@ class Empleado extends Model
     {
         return $this->morphOne('App\User', 'userable');
     }
+
+    public function empresa()
+    {
+        return $this->belongsTo('App\Models\Empresa');
+    }
 }

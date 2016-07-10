@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(Auth::guest()){
+        return redirect('/login');
+    }else{
+        return redirect('/home');
+    }
 });
 
 Route::auth();
@@ -23,7 +27,7 @@ Route::get('/registrar-empresa', 'RegistrarController@index');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::group(['middleware' => 'cliente'], function(){
-        //
+        Route::get('/servicios/{id}', ['as'=>'servicios.ver', 'uses'=>'ClienteController@verServicio']);
     });
     Route::group(['middleware' => 'empleado', 'prefix' => 'empresa'], function(){
         //

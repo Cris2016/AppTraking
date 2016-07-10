@@ -10,4 +10,9 @@ class Cliente extends Model
     {
         return $this->morphOne('App\User', 'userable');
     }
+
+    public function servicios()
+    {
+        return $this->hasMany('App\Models\Servicio');
+    }
 }
