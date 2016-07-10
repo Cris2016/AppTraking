@@ -23,7 +23,11 @@
     <div class="form-group">
       <label for="inputPassword" class="col-md-4 control-label">Rubro</label>
       <div class="col-md-4">
-        <input class="form-control" id="inputPassword" placeholder="Rubro" type="text">
+        <select class="form-control">
+        @foreach($rubros as $r)
+          <option value="{{$r->id}}">{{$r->name}}</option>
+        @endforeach
+        </select>
       </div>
     </div>
     <div class="form-group">
