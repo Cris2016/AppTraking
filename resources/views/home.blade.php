@@ -14,7 +14,7 @@
                 </div>
                 <table class="table">
                     <thead>
-                    @if(Auth::user()->userable_type == App\Models\Cliente::class)
+                    @if(Auth::user()->esCliente())
                         <tr>
                             <th>Empresa</th>
                             <th>Empleado</th>
@@ -30,7 +30,7 @@
                     @endif
                     </thead>
                     <tbody>
-                    @if(Auth::user()->userable_type == App\Models\Cliente::class)
+                    @if(Auth::user()->esCliente())
                         @foreach($servicios as $servicio)
                         <tr>
                             <td>{{ $servicio->empleado->empresa->nombre }}</td>
@@ -40,7 +40,7 @@
                             <td><a href="{{ URL::route('servicios.ver', ['id'=>$servicio->id]) }}">Ver &raquo;</a></td>
                         </tr>
                         @endforeach
-                    @else
+                    @elseif
                         @foreach($servicios as $servicio)
                         <tr>
                             <td>{{ $servicio->cliente->user->name }}</td>

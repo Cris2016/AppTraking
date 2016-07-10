@@ -28,4 +28,14 @@ class User extends Authenticatable
     {
         return $this->morphTo();
     }
+
+    public function esCliente()
+    {
+        return $this->userable_type === \App\Models\Cliente::class;
+    }
+
+    public function esEmpleado()
+    {
+        return $this->userable_type === \App\Models\Empleado::class;
+    }
 }
