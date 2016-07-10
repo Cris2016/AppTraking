@@ -74,6 +74,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i> Registrarse
                                 </button>
+                                <a class="btn btn-default" href="{{ url('registrar-empresa') }}">Registrar Empresa</a>
                             </div>
                         </div>
                     </form>
