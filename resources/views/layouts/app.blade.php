@@ -34,31 +34,23 @@
         <ul class="nav navbar-nav navbar-right">
             <!-- Authentication Links -->
             @if (Auth::guest())
-                <li><a href="{{ url('/login') }}">Inicio de Sesion</a></li>
+                <li><a href="{{ url('/login') }}">Inicio de Sesión</a></li>
                 <li><a href="{{ url('/register') }}">Registrarse</a></li>
             @else
-                  <li><a href="#">{{ Auth::user()->name }}</a></li>
+                  <li><a href="#"></a></li>
                     </a>
                 </li>
-
         </ul>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar sesión</a></li>
-        @endif
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar sesión</a></li>
+            @endif
+
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
