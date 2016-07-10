@@ -38,3 +38,5 @@ Route::group(['middleware' => 'auth'], function(){
 Route::get('/quienesSomos', function () {
     return view('quienesSomos');
 });
+
+Route::get('/empresas','PublicController@empresas');
