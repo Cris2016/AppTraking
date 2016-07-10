@@ -30,14 +30,16 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
 
-        <li class="active"><a href="#">Empresas <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="">Empresas <span class="sr-only">(current)</span></a></li>
+
         <ul class="nav navbar-nav navbar-right">
             <!-- Authentication Links -->
             @if (Auth::guest())
+                <li><a href="{{ url('/quienesSomos') }}">¿Quiénes Somos? <span class="sr-only">(current)</span></a></li>
                 <li><a href="{{ url('/login') }}">Inicio de Sesión</a></li>
                 <li><a href="{{ url('/register') }}">Registrarse</a></li>
             @else
-                  <li><a href="#"></a></li>
+
                     </a>
                 </li>
         </ul>
@@ -57,6 +59,8 @@
 </nav>
 
     @yield('content')
+
+
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
