@@ -39,9 +39,6 @@
                 <li><a href="{{ url('/register') }}">Registrarse</a></li>
             @else
 
-              @if(Auth::user()->esEmpleado())
-              <li><a href="{{url('/agregarEmpleado')}}">Empleados <span class="sr-only">(current)</span></a></li>
-              @endif
         </ul>
       </ul>
       <ul class="nav navbar-nav navbar-right">
