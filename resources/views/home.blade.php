@@ -40,13 +40,13 @@
                             <td><a href="{{ URL::route('servicios.ver', ['id'=>$servicio->id]) }}">Ver &raquo;</a></td>
                         </tr>
                         @endforeach
-                    @elseif
+                    @elseif(Auth::user()->esEmpleado())
                         @foreach($servicios as $servicio)
                         <tr>
                             <td>{{ $servicio->cliente->user->name }}</td>
                             <td>{{ $servicio->nombre }}</td>
                             <td><span class="label {{ $serviciosLabels[$servicio->estado->codigo] }}">{{ $servicio->estado->nombre }}</span></td>
-                            <td><a href="{{ URL::route('servicios.ver', ['id'=>$servicio->id]) }}">Ver &raquo;</a></td>
+                            <td><a href="{{ \URL::route('servicios.ver', ['id'=>$servicio->id]) }}">Ver &raquo;</a></td>
                         </tr>
                         @endforeach
                     @endif

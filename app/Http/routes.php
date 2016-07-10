@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth'], function(){
         //
     });
     Route::group(['middleware' => 'empleado', 'prefix' => 'empresa'], function(){
-        //
+        Route::post('/servicios/{id}/eventos', ['as'=>'servicios.eventos.guardar', 'uses'=>'EmpleadosController@guardarEvento']);
     });
 });
 
