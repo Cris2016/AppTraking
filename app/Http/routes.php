@@ -40,3 +40,4 @@ Route::get('/quienesSomos', function () {
 });
 
 Route::get('/empresas','PublicController@empresas');
+Route::get('/agregarEmpleado','EmpleadosController@agregarEmpleado');

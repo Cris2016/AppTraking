@@ -39,8 +39,7 @@
                 <li><a href="{{ url('/register') }}">Registrarse</a></li>
             @else
 
-                    </a>
-                </li>
+              <li><a href="{{url('/agregarEmpleado')}}">Empleados <span class="sr-only">(current)</span></a></li>
         </ul>
       </ul>
       <ul class="nav navbar-nav navbar-right">
